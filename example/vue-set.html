@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<h1>vue-set</h1>
+<hr>
+<div id="app">
+    {{ count }}
+    <ul>
+        <li v-for="item in arr">{{ item }}</li>
+    </ul>
+    <button @click="button2Click()">增加数组的长度</button>
+</div>
+<p><button onclick="add()">外部添加</button></p>
+
+<script type="text/javascript">
+    function add(){
+        // 1.Vue.set改变d
+        // Vue.set(outData,'count',2);
+        // 2.用vue对象的方法添加
+        // app.count++;
+        // 3.直接操作外部数据
+        console.log("我已经执行了");
+        outData.count++;
+        // 一下两个语句作用一样
+        // this.arr[0]="ffff";
+        // outData.arr[1]='fff'
+
+        // app.arr[1]='ddd';
+
+        //“1”：是下标，“dd”：是将要换成的内容
+        Vue.set(app.arr,1,'dd')
+    }
+    var outData ={
+        count:1,
+        // goods:'car'
+        arr:['aaa','bbb','ccc']
+    }
+    var app = new Vue({
+        el:'#app',
+        data:outData,
+        methods:{
+            button2Click:function () {
+                var arrlen = this.arr.length;
+                console.log(arrlen);
+                Vue.set(this.arr,arrlen,'hhhh')
+            }
+        }
+    })
+</script>
+</body>
+</html>

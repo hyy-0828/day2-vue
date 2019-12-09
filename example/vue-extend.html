@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+
+<h1>vue.extend 扩展实例构造器</h1>
+<hr>
+
+<!--web用这个标签也可以-->
+<!--<web></web>-->
+
+<div id="web"></div>
+<script type="text/javascript">
+    var webExtend = Vue.extend({
+        template:"<p><a :href='webURL'>{{webName}}</a></p> ",
+        // 这里的data必须是个函数
+        data:function () {
+            return{
+                webName:'太极开发者社区',
+                webURL:"http://tech.taiji.com.cn/"
+            }
+        }
+    });
+    // new webExtend().$mount('web');
+
+    // 扩展实例构造器时需要挂载的
+    new webExtend().$mount('#web');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-bind实例</h1>
+<hr>
+
+<style>
+    .classA{
+        color:red;
+    }
+    .classB{
+        font-size:150%;
+        /*color:green;*/
+    }
+</style>
+
+<div id="app">
+    <!--用v-bind:src=”imgSrc”的动态绑定了src的值-->
+    <p><img v-bind:src="imgSrc" width=200"/></p>
+    <p><a :href="webUrl" target="_blank">百度网址</a></p>
+    <hr>
+    <div :class="className">1.绑定class</div>
+    <div :class="{classA:isOk}">2.绑定class中的判断</div>
+    <div :class="[classA,classB]">3.绑定class中的数组</div>
+    <div :class="isOk?classA:classB">3.绑定class中的三元运算符</div>
+    <hr>
+    <div>
+        <input type="checkbox" id="isOk" v-model="isOk">
+        <label for="isOk">isOk={{isOk}}</label>
+    </div>
+    <hr>
+    <div :style="{color:red,fontSize:font}">5.绑定style</div>
+    <div :style="styleObject">6.对象绑定style</div>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        //绑定CSS样式时，绑定的值必须在vue中的data属性中进行声明
+        data:{
+            imgSrc:'https://www.baidu.com/img/bd_logo1.png?where=super',
+            webUrl:'https://www.baidu.com/',
+            className:'classA',
+            isOk:false,
+            classA:'classA',
+            classB:'classB',
+            red:'red',
+            font:'20px',
+            styleObject:{
+                color:'green',
+                fontSize:'24px'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

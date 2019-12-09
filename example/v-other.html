@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-pre & v-cloak & v-once</h1>
+<hr>
+<div id="app">
+
+    <!--内容没有任何变化-->
+    <div v-pre>{{ message }}</div>
+
+    <div v-cloak>渲染完成后，才显示</div>
+
+    <!--页面只渲染一次,不随着data里的变化而变化-->
+    <div v-once>{{message}}</div>
+    <div><input type="text" v-model="message"></div>
+    <div>{{message}}</div>
+</div>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello world!'
+        }
+    })
+</script>
+</body>
+
+</body>
+</html>

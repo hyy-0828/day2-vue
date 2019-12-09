@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<h1>v-on 实例</h1>
+<hr>
+<div id="app">
+    数字为：{{score}}
+    <p>
+    <button v-on:click="addTest">加法</button>
+    <button @click="decTest">减法</button>
+    <input type="text" @Keyup.enter="onEnter" v-model="age">
+    </p>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            score:0,
+            age:1,
+        },
+        methods:{
+            addTest:function () {
+                this.score++;
+            },
+            decTest:function () {
+                this.score--;
+            },
+            onEnter:function () {
+                //因为文本框的数字会默认转变成字符串，所以我们需要用parseInt()函数进行整数转换。
+                this.score = this.score + parseInt(this.age);
+            }
+        }
+    })
+</script>
+</body>
+</html>
