@@ -1,0 +1,17 @@
+{
+  "name": "day2-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+//    指定端口号
+    "server":"live-server ./ --port=8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
